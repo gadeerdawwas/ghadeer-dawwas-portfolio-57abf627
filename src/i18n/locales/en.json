@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "Ghadeer Dawwas — Data Analyst & Software Developer",
+    "description": "Portfolio of Ghadeer Dawwas, Data Analyst and Software Developer building dashboards, business intelligence and modern web solutions.",
+    "langName": "English",
+    "switchTo": "العربية"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "services": "Services",
+    "projects": "Projects",
+    "experience": "Experience",
+    "process": "Process",
+    "contact": "Contact",
+    "cta": "Contact Me",
+    "menu": "Open menu",
+    "close": "Close menu",
+    "theme": "Toggle theme",
+    "language": "Change language"
+  },
+  "hero": {
+    "badge": "Available for Freelance Projects",
+    "name": "Ghadeer Dawwas",
+    "title": "Data Analyst & Software Developer",
+    "description": "I transform complex data into clear business insights and build modern digital solutions that help businesses make better decisions.",
+    "cta1": "View My Work",
+    "cta2": "Contact Me",
+    "scroll": "Scroll to explore",
+    "panelTitle": "Business Insights",
+    "panelSubtitle": "Live analytics preview",
+    "metricRevenue": "Revenue Growth",
+    "metricAccuracy": "Data Accuracy",
+    "metricReports": "Reports Delivered",
+    "chartLabel": "Quarterly performance"
+  },
+  "about": {
+    "eyebrow": "Who I am",
+    "title": "About Me",
+    "content": "I am a Software Engineering graduate with experience in data analysis, business intelligence, and web development. I help businesses transform raw data into meaningful insights through interactive dashboards, data visualization, analytical reports, and modern digital solutions.",
+    "cv": "Download CV",
+    "stats": {
+      "experience": "2+ Years Experience",
+      "projects": "10+ Projects",
+      "tools": "4+ Analytics Tools",
+      "expertise": "Data & Development Expertise"
+    }
+  },
+  "skills": {
+    "eyebrow": "Toolbox",
+    "title": "Skills & Technologies",
+    "subtitle": "A practical stack covering the full path from raw data to a delivered product.",
+    "dataCategory": "Data Analysis & Business Intelligence",
+    "devCategory": "Software Development",
+    "items": {
+      "dataCleaning": "Data Cleaning",
+      "dataVisualization": "Data Visualization",
+      "kpiAnalysis": "KPI Analysis",
+      "dashboardDesign": "Dashboard Design"
+    }
+  },
+  "services": {
+    "eyebrow": "What I offer",
+    "title": "Services",
+    "subtitle": "End-to-end support for turning business questions into measurable answers."
+  },
+  "projects": {
+    "eyebrow": "Selected work",
+    "title": "Featured Projects",
+    "subtitle": "Dashboards, analyses and applications built for real business questions.",
+    "view": "View Project",
+    "filters": {
+      "all": "All",
+      "powerbi": "Power BI",
+      "tableau": "Tableau",
+      "excel": "Excel",
+      "sql": "SQL",
+      "web": "Web Development"
+    },
+    "details": {
+      "overview": "Project Overview",
+      "problem": "Business Problem",
+      "dataset": "Dataset",
+      "tools": "Tools Used",
+      "process": "Analysis Process",
+      "insights": "Key Insights",
+      "screenshots": "Dashboard Screenshots",
+      "results": "Results",
+      "github": "GitHub",
+      "demo": "Live Demo",
+      "close": "Close"
+    }
+  },
+  "experience": {
+    "eyebrow": "Journey",
+    "title": "Experience",
+    "subtitle": "Training, development work and freelance delivery."
+  },
+  "process": {
+    "eyebrow": "Method",
+    "title": "How I Work",
+    "subtitle": "A clear four-step process from first conversation to final delivery.",
+    "step": "Step"
+  },
+  "contact": {
+    "eyebrow": "Get in touch",
+    "title": "Let's Build Something Valuable Together",
+    "text": "Have a project, dataset, or business problem? Let's discuss how data and technology can help you achieve better results.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "namePlaceholder": "Your full name",
+    "emailPlaceholder": "you@company.com",
+    "subjectPlaceholder": "How can I help?",
+    "messagePlaceholder": "Tell me about your project or dataset...",
+    "success": "Thanks! Your message has been captured.",
+    "successHint": "Messaging will be connected to the backend in the next phase.",
+    "error": "Please fill in all fields with a valid email.",
+    "emailLabel": "Email",
+    "locationLabel": "Location",
+    "location": "Palestine — Working remotely worldwide",
+    "responseLabel": "Response time",
+    "response": "Usually within 24 hours"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "social": "Social Links",
+    "tagline": "Data Analyst & Software Developer",
+    "rights": "All rights reserved.",
+    "built": "Designed and built with care."
+  }
+}
