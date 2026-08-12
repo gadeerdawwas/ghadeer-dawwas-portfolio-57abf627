@@ -15,12 +15,17 @@ import { I18nProvider } from "@/i18n";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 
+const SITE_URL =
+  "https://ghadeer-dawwas-portfolio-57abf627.up120161676.workers.dev/";
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">
+          Page not found
+        </h2>
         <p className="mt-2 text-sm text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
         </p>
@@ -40,8 +45,11 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    reportLovableError(error, {
+      boundary: "tanstack_root_error_component",
+    });
   }, [error]);
 
   return (
@@ -55,6 +63,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
+            type="button"
             onClick={() => {
               router.invalidate();
               reset();
@@ -80,23 +89,52 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Ghadeer Dawwas | Data Analyst & Business Intelligence" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Ghadeer Dawwas, Data Analyst and Business Intelligence Analyst specializing in Power BI, Tableau, SQL, Excel, data visualization, and interactive dashboards.",
+      },
       { name: "author", content: "Ghadeer Dawwas" },
+      { name: "robots", content: "index, follow" },
       { property: "og:site_name", content: "Ghadeer Dawwas" },
       { property: "og:type", content: "website" },
+      {
+        property: "og:title",
+        content: "Ghadeer Dawwas | Data Analyst & Business Intelligence",
+      },
+      {
+        property: "og:description",
+        content:
+          "Explore data analytics, business intelligence dashboards, Power BI, Tableau, SQL, and Excel projects by Ghadeer Dawwas.",
+      },
+      { property: "og:url", content: SITE_URL },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Ghadeer Dawwas | Data Analyst & Business Intelligence",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Data Analytics and Business Intelligence portfolio featuring Power BI, Tableau, SQL, Excel, and interactive dashboards.",
+      },
     ],
     links: [
+      { rel: "canonical", href: SITE_URL },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
       {
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cairo:wght@400;500;600;700;800&display=swap",
       },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,
@@ -126,7 +164,6 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <I18nProvider>
-          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
           <Toaster position="top-center" />
         </I18nProvider>
