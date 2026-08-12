@@ -465,9 +465,9 @@ export const skills: SkillRow[] = [
 
 export const siteSettings = {
   initials: "GD",
-  email: "ghadeer.dawwas@example.com",
-  linkedin: "https://www.linkedin.com/",
-  github: "https://github.com/",
+  email: "gadeerdawwas98@gmail.com",
+  linkedin: "https://www.linkedin.com/in/ghadeer-dawwas-484262167/",
+  github: "https://github.com/gadeerdawwas/ghadeer-dawwas-portfolio-57abf627",
   cvUrl: "#",
 };
 

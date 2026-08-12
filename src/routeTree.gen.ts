@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminDashboardRouteImport } from './routes/admin/dashboard'
+import { Route as AdminExperiencesRouteImport } from './routes/admin/experiences'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminMessagesRouteImport } from './routes/admin/messages'
+import { Route as AdminProcessRouteImport } from './routes/admin/process'
+import { Route as AdminProjectsRouteImport } from './routes/admin/projects'
+import { Route as AdminServicesRouteImport } from './routes/admin/services'
+import { Route as AdminSettingsRouteImport } from './routes/admin/settings'
+import { Route as AdminSkillsRouteImport } from './routes/admin/skills'
+import { Route as AdminSocialLinksRouteImport } from './routes/admin/social-links'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminDashboardRoute = AdminDashboardRouteImport.update({
+  id: '/admin/dashboard',
+  path: '/admin/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminExperiencesRoute = AdminExperiencesRouteImport.update({
+  id: '/admin/experiences',
+  path: '/admin/experiences',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminMessagesRoute = AdminMessagesRouteImport.update({
+  id: '/admin/messages',
+  path: '/admin/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminProcessRoute = AdminProcessRouteImport.update({
+  id: '/admin/process',
+  path: '/admin/process',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminProjectsRoute = AdminProjectsRouteImport.update({
+  id: '/admin/projects',
+  path: '/admin/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminServicesRoute = AdminServicesRouteImport.update({
+  id: '/admin/services',
+  path: '/admin/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/admin/settings',
+  path: '/admin/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSkillsRoute = AdminSkillsRouteImport.update({
+  id: '/admin/skills',
+  path: '/admin/skills',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminSocialLinksRoute = AdminSocialLinksRouteImport.update({
+  id: '/admin/social-links',
+  path: '/admin/social-links',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/experiences': typeof AdminExperiencesRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/process': typeof AdminProcessRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/services': typeof AdminServicesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/skills': typeof AdminSkillsRoute
+  '/admin/social-links': typeof AdminSocialLinksRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/experiences': typeof AdminExperiencesRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/process': typeof AdminProcessRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/services': typeof AdminServicesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/skills': typeof AdminSkillsRoute
+  '/admin/social-links': typeof AdminSocialLinksRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/experiences': typeof AdminExperiencesRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/messages': typeof AdminMessagesRoute
+  '/admin/process': typeof AdminProcessRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/services': typeof AdminServicesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/skills': typeof AdminSkillsRoute
+  '/admin/social-links': typeof AdminSocialLinksRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin/dashboard'
+    | '/admin/experiences'
+    | '/admin/login'
+    | '/admin/messages'
+    | '/admin/process'
+    | '/admin/projects'
+    | '/admin/services'
+    | '/admin/settings'
+    | '/admin/skills'
+    | '/admin/social-links'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin/dashboard'
+    | '/admin/experiences'
+    | '/admin/login'
+    | '/admin/messages'
+    | '/admin/process'
+    | '/admin/projects'
+    | '/admin/services'
+    | '/admin/settings'
+    | '/admin/skills'
+    | '/admin/social-links'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin/dashboard'
+    | '/admin/experiences'
+    | '/admin/login'
+    | '/admin/messages'
+    | '/admin/process'
+    | '/admin/projects'
+    | '/admin/services'
+    | '/admin/settings'
+    | '/admin/skills'
+    | '/admin/social-links'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminDashboardRoute: typeof AdminDashboardRoute
+  AdminExperiencesRoute: typeof AdminExperiencesRoute
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminMessagesRoute: typeof AdminMessagesRoute
+  AdminProcessRoute: typeof AdminProcessRoute
+  AdminProjectsRoute: typeof AdminProjectsRoute
+  AdminServicesRoute: typeof AdminServicesRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminSkillsRoute: typeof AdminSkillsRoute
+  AdminSocialLinksRoute: typeof AdminSocialLinksRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,12 +182,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/dashboard': {
+      id: '/admin/dashboard'
+      path: '/admin/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AdminDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/experiences': {
+      id: '/admin/experiences'
+      path: '/admin/experiences'
+      fullPath: '/admin/experiences'
+      preLoaderRoute: typeof AdminExperiencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/messages': {
+      id: '/admin/messages'
+      path: '/admin/messages'
+      fullPath: '/admin/messages'
+      preLoaderRoute: typeof AdminMessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/process': {
+      id: '/admin/process'
+      path: '/admin/process'
+      fullPath: '/admin/process'
+      preLoaderRoute: typeof AdminProcessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/projects': {
+      id: '/admin/projects'
+      path: '/admin/projects'
+      fullPath: '/admin/projects'
+      preLoaderRoute: typeof AdminProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/services': {
+      id: '/admin/services'
+      path: '/admin/services'
+      fullPath: '/admin/services'
+      preLoaderRoute: typeof AdminServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/admin/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/skills': {
+      id: '/admin/skills'
+      path: '/admin/skills'
+      fullPath: '/admin/skills'
+      preLoaderRoute: typeof AdminSkillsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/social-links': {
+      id: '/admin/social-links'
+      path: '/admin/social-links'
+      fullPath: '/admin/social-links'
+      preLoaderRoute: typeof AdminSocialLinksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminDashboardRoute: AdminDashboardRoute,
+  AdminExperiencesRoute: AdminExperiencesRoute,
+  AdminLoginRoute: AdminLoginRoute,
+  AdminMessagesRoute: AdminMessagesRoute,
+  AdminProcessRoute: AdminProcessRoute,
+  AdminProjectsRoute: AdminProjectsRoute,
+  AdminServicesRoute: AdminServicesRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminSkillsRoute: AdminSkillsRoute,
+  AdminSocialLinksRoute: AdminSocialLinksRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

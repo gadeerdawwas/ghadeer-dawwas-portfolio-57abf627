@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { siteSettings } from "@/data/content";
 import { useI18n } from "@/i18n";
+import { supabase } from "@/lib/supabase";
 
 const EMPTY = { name: "", email: "", subject: "", message: "" };
 
@@ -18,20 +19,42 @@ export function Contact() {
   const [form, setForm] = useState(EMPTY);
   const [submitting, setSubmitting] = useState(false);
 
-  // Phase 2: this handler will post to a server function backed by Lovable Cloud.
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const valid =
-      form.name.trim() && form.subject.trim() && form.message.trim() && /\S+@\S+\.\S+/.test(form.email);
+      form.name.trim() &&
+      form.subject.trim() &&
+      form.message.trim() &&
+      /\S+@\S+\.\S+/.test(form.email);
+
     if (!valid) {
       toast.error(t("contact.error"));
       return;
     }
+
     setSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 600));
+
+    const { error } = await supabase.from("contact_messages").insert({
+      name: form.name.trim(),
+      email: form.email.trim(),
+      subject: form.subject.trim(),
+      message: form.message.trim(),
+      status: "new",
+    });
+
     setSubmitting(false);
+
+    if (error) {
+      console.error("Unable to send contact message:", error);
+      toast.error(t("contact.error"));
+      return;
+    }
+
     setForm(EMPTY);
-    toast.success(t("contact.success"), { description: t("contact.successHint") });
+    toast.success(t("contact.success"), {
+      description: t("contact.successHint"),
+    });
   };
 
   const info = [
@@ -82,6 +105,7 @@ export function Contact() {
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                   />
                 </div>
+
                 <div className="grid gap-2">
                   <Label htmlFor="email">{t("contact.email")}</Label>
                   <Input
@@ -94,6 +118,7 @@ export function Contact() {
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                   />
                 </div>
+
                 <div className="grid gap-2 sm:col-span-2">
                   <Label htmlFor="subject">{t("contact.subject")}</Label>
                   <Input
@@ -103,6 +128,7 @@ export function Contact() {
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
                   />
                 </div>
+
                 <div className="grid gap-2 sm:col-span-2">
                   <Label htmlFor="message">{t("contact.message")}</Label>
                   <Textarea
@@ -114,6 +140,7 @@ export function Contact() {
                   />
                 </div>
               </div>
+
               <Button
                 type="submit"
                 size="lg"
@@ -121,7 +148,7 @@ export function Contact() {
                 className="bg-gradient-brand mt-6 w-full shadow-soft"
               >
                 <Send className="size-4 rtl:-scale-x-100" />
-                {t("contact.send")}
+                {submitting ? t("contact.sending") : t("contact.send")}
               </Button>
             </form>
           </Reveal>

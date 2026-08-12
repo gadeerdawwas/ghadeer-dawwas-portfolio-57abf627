@@ -54,8 +54,12 @@ export function ProjectDialog({
 
               <div className="mt-6 grid gap-6">
                 <Block title={t("projects.details.overview")}>{tr(project, "description")}</Block>
-                <Block title={t("projects.details.problem")}>{tr(project, "problem")}</Block>
-                <Block title={t("projects.details.dataset")}>{tr(project, "dataset")}</Block>
+                {"problem_en" in project && "problem_ar" in project ? (
+                  <Block title={t("projects.details.problem")}>{tr(project, "problem")}</Block>
+                ) : null}
+                {"dataset_en" in project && "dataset_ar" in project ? (
+                  <Block title={t("projects.details.dataset")}>{tr(project, "dataset")}</Block>
+                ) : null}
 
                 <Block title={t("projects.details.tools")}>
                   <ul className="flex flex-wrap gap-2">
@@ -70,61 +74,76 @@ export function ProjectDialog({
                   </ul>
                 </Block>
 
-                <Block title={t("projects.details.process")}>
-                  <ol className="list-inside list-decimal space-y-1.5">
-                    {trList(project, "process").map((step) => (
-                      <li key={step}>{step}</li>
-                    ))}
-                  </ol>
-                </Block>
+                {"process_en" in project && "process_ar" in project ? (
+                  <Block title={t("projects.details.process")}>
+                    <ol className="list-inside list-decimal space-y-1.5">
+                      {trList(project, "process").map((step) => (
+                        <li key={step}>{step}</li>
+                      ))}
+                    </ol>
+                  </Block>
+                ) : null}
 
-                <Block title={t("projects.details.insights")}>
-                  <ul className="space-y-1.5">
-                    {trList(project, "insights").map((item) => (
-                      <li key={item} className="flex gap-2">
-                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Block>
+                {"insights_en" in project && "insights_ar" in project ? (
+                  <Block title={t("projects.details.insights")}>
+                    <ul className="space-y-1.5">
+                      {trList(project, "insights").map((item) => (
+                        <li key={item} className="flex gap-2">
+                          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </Block>
+                ) : null}
 
-                <Block title={t("projects.details.screenshots")}>
-                  <div className="grid gap-3 sm:grid-cols-2">
-                    {project.gallery.map((src, i) => (
-                      <img
-                        key={`${src}-${i}`}
-                        src={src}
-                        alt={`${tr(project, "title")} — ${i + 1}`}
-                        width={1200}
-                        height={750}
-                        loading="lazy"
-                        className="rounded-xl border border-border object-cover"
-                      />
-                    ))}
+                {project.gallery?.length ? (
+                  <Block title={t("projects.details.screenshots")}>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      {project.gallery.map((src, i) => (
+                        <img
+                          key={`${src}-${i}`}
+                          src={src}
+                          alt={`${tr(project, "title")} — ${i + 1}`}
+                          width={1200}
+                          height={750}
+                          loading="lazy"
+                          className="rounded-xl border border-border object-cover"
+                        />
+                      ))}
+                    </div>
+                  </Block>
+                ) : null}
+
+                {"results_en" in project && "results_ar" in project ? (
+                  <Block title={t("projects.details.results")}>{tr(project, "results")}</Block>
+                ) : null}
+
+                {project.github_url || project.live_url ? (
+                  <div className="flex flex-wrap gap-3">
+                    {project.github_url ? (
+                      <Button asChild variant="outline">
+                        <a
+                          href={project.github_url}
+                          target="_blank"
+                          rel="noreferrer noopener"
+                        >
+                          <Github className="size-4" />
+                          {t("projects.details.github")}
+                        </a>
+                      </Button>
+                    ) : null}
+
+                    {project.live_url ? (
+                      <Button asChild className="bg-gradient-brand">
+                        <a href={project.live_url} target="_blank" rel="noreferrer noopener">
+                          <ExternalLink className="size-4" />
+                          {t("projects.details.demo")}
+                        </a>
+                      </Button>
+                    ) : null}
                   </div>
-                </Block>
-
-                <Block title={t("projects.details.results")}>{tr(project, "results")}</Block>
-
-                <div className="flex flex-wrap gap-3">
-                  <Button asChild variant="outline">
-                    <a
-                      href={project.github_url ?? "#"}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      <Github className="size-4" />
-                      {t("projects.details.github")}
-                    </a>
-                  </Button>
-                  <Button asChild className="bg-gradient-brand">
-                    <a href={project.live_url ?? "#"} target="_blank" rel="noreferrer noopener">
-                      <ExternalLink className="size-4" />
-                      {t("projects.details.demo")}
-                    </a>
-                  </Button>
-                </div>
+                ) : null}
               </div>
             </div>
           </>

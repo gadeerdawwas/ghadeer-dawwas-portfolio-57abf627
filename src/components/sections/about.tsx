@@ -24,11 +24,12 @@ export function About() {
           <Reveal delay={100}>
             <p className="mt-6 text-base leading-8 text-muted-foreground">{t("about.content")}</p>
             <Button asChild size="lg" className="bg-gradient-brand mt-8 shadow-soft">
-              <a href={siteSettings.cvUrl}>
+              <a href="/Ghadeer-Dawwas-CV.pdf" download="Ghadeer-Dawwas-CV.pdf">
                 <Download className="size-4" />
                 {t("about.cv")}
               </a>
             </Button>
+            
           </Reveal>
         </div>
 
