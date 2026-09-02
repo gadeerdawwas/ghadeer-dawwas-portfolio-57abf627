@@ -38,7 +38,7 @@ export function Navbar() {
         scrolled ? "glass-panel shadow-soft" : "border-b border-transparent bg-transparent",
       )}
     >
-      <nav className="mx-auto flex h-18 max-w-7xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <nav className="nav-enter mx-auto flex h-18 max-w-7xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
         <a href="#home" className="flex shrink-0 items-center gap-2.5">
           <span className="bg-gradient-brand grid size-10 place-items-center rounded-xl text-sm font-extrabold tracking-tight text-primary-foreground shadow-soft">
             {siteSettings.initials}
@@ -58,9 +58,7 @@ export function Navbar() {
                 href={`#${id}`}
                 className={cn(
                   "relative rounded-full px-3 py-2 text-sm font-medium transition-colors",
-                  active === id
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground",
+                  active === id ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {t(`nav.${id}`)}
